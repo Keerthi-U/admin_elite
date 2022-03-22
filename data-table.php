@@ -311,7 +311,7 @@ $result = mysqli_query($conn,$query);
                 <td><?php echo $row['contactnumber'] ?></td>
                 <td><?php echo $row['created_by']?></td>
                 <td><?php if($row['approved_status'] === NULL){ echo 'Pending';}?></td>
-                <td><a class="fa fa-eye  fac-icon1" data-id="<?php echo $row['id'];?>"></a>
+                <td><a href="view.php?id=<?php echo $row['id'];?>"  class="fa fa-eye fac-icon1"> </a>
                 <button class="fa fa-pencil fac-icon2"></button>
                 <button class="fa fa-trash-o fac-icon3"></button>
                </td>
@@ -334,46 +334,12 @@ $result = mysqli_query($conn,$query);
         <?php
         include_once('footer.php');
         ?>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     
 
         <script>
 
-      $('.fac-icon1').click(function(){
-       var id = $(this).data('id');
-       alert(id);
-       $.ajax({
-           type:"GET",
-           url:"view.php",
-         
-           data: { id: id },
-      
-           success:function(data){
-               alert(data);
-               $("#name").html(data.fullname);
-               
-           }
 
 
-       });
- });
 
-// $(document).ready(function($){
-// $('body').on('click', '.fac-icon1', function () {
-// var id = $(this).data('id');
-// alert(id);
-// // ajax
-// $.ajax({
-// type:"POST",
-// url: "ajax-fetch-record.php",
-// data: { id: id },
-// dataType: 'json',
-// success: function(res){
-// $('#fname').html(res.fname);
-// $('#lname').html(res.lname);
-// $('#email').html(res.email);
-// }
-// });
-// });
-// });
 </script>
     
